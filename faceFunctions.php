@@ -19,6 +19,3 @@ $params = array(
 $loginUrl = $facebook->getLoginUrl($params);
 
 ?>
-
-
-<?php //echo phpinfo(); ?>
