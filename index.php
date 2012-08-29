@@ -2,24 +2,35 @@
 <html>
 	<head>
 		<title>Musicapp</title>
+
+		<script src="http://connect.facebook.net/en_US/all.js"></script>
+		
+		<script>
+		  FB.init({
+		  appId  : '378585638878609',
+		  status : true, // check login status
+		  cookie : true, // enable cookies to allow the server to access the session
+		  xfbml  : true  // parse XFBML
+		});
+		</script>
+
 	</head>
 
 	<body>
 	<div id="fb-root"></div>
-	<script src="http://connect.facebook.net/en_US/all.js"></script>
 
-	<script>
-	  FB.init({
-	  appId  : '378585638878609',
-	  status : true, // check login status
-	  cookie : true, // enable cookies to allow the server to access the session
-	  xfbml  : true  // parse XFBML
-	});
+	<script type="text/javascript">
+	FB.getLoginStatus(function(response) {
+	  if (response.status === 'connected') {
+	  	$("#").hide();
+	  }
+	}
+
 	</script>
 
 	<h1> Musicapp.com </h1>
 
-	<div> <fb:login-button registration-url="?view=procesaRegistro" /> </div>
+	<div id='botonLogin'> <fb:login-button registration-url="?view=procesaRegistro" /> </div>
 
 	<?php
 	
@@ -40,7 +51,7 @@
 	    var uid = response.authResponse.userID;
 	    var accessToken = response.authResponse.accessToken;
 	    alert ("loged: "+accessToken);
-	    
+
 
 	  } else if (response.status === 'not_authorized') {
 	    // the user is logged in to Facebook, 
