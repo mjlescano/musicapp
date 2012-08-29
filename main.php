@@ -4,7 +4,8 @@
 		<title>Musicapp</title>
 	</head>
 	<body>
-		Prueba!
+		s
+		
 		<a href="<?php echo $loginUrl; ?>">Login</a>
 	</body>
 </html>
