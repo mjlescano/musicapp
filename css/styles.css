@@ -1,0 +1,11 @@
+html, body {
+	margin: 0;
+	padding: 0;
+	background-color: salmon;
+}
+
+#playing {
+	margin: 0 auto;
+	width: 500px;
+	height: 300px;
+}
