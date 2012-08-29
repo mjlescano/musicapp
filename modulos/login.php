@@ -2,7 +2,7 @@
 	<iframe
 		src="https://www.facebook.com/plugins/registration?
 		client_id=<?php echo $appId; ?>&
-		redirect_uri=<?php echo $urlPath; ?>?view=procesaRegistro&
+		redirect_uri=<?php echo $urlPath; ?>&
 		fields=[
 		 {'name':'name'},
 		 {'name':'email'},
