@@ -2,7 +2,7 @@
 
 <?php
 
-require_once './facebooksdk/facebook.php';
+//require_once './facebooksdk/facebook.php';
 
 $urlPath = 'http://test.musicapp.com/t2/musicapp/musicapp';
 $appId = '378585638878609';
