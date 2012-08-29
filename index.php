@@ -27,11 +27,10 @@
 		FB.getLoginStatus(function(response) {
 			if (response.status === 'connected') {
 				$("#botonLogin").hide();
-
+				console.log(response);
 				FB.api('/me/music', function(response) {
 				  console.log(response);
 				});
-
 				console.log("loged");
 			} else {
 				console.log(arguments)
@@ -39,7 +38,6 @@
 		});
 	});
 	</script>
-
 	<h1> Musicapp.com </h1>
 
 	<div id='botonLogin'> <fb:login-button registration-url="?view=procesaRegistro" /> </div>
