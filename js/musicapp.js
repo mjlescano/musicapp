@@ -1,20 +1,31 @@
 ;(function() {
 	var m = {};
 
+	function parseYoutube(r) {
+		var songs = [], type = 'youtube';
+		_.each(r.feed.entry, function(e) {
+			var d = {
+				type: type,
+				id: e['media$group']['yt$videoid']['$t'],
+				title: e.title['$t']
+			};
+			songs.push(d);
+		});
+		return songs;
+	}
+
 	m.search = function(query) {
 		var s = $();
-
+		var url = 'api/youtube.php?q=' + encodeURIComponent(query);
 		$.ajax({
-			url: 'http://localhost/getjson.php?url=' + encodeURI('http://gdata.youtube.com/feeds/api/videos?v=2&alt=json&q='+query),
-			success: function() {
-
+			url: url,
+			success: function(r) {
+				var data = parseYoutube(r);
+				console.log('youtube: ', data);
+				s.trigger('search:success',  data);
 			},
-			error: function() {
-
-			},
-			complete: function () {
-				s.trigger('search:success');
-				console.log(arguments);
+			complete: function (response, msg) {
+				console.log('search:' + msg);
 			}
 		});
 
